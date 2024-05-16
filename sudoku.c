@@ -43,21 +43,91 @@ void print_node(Node* n){
     printf("\n");
 }
 
+int esta_en_lista(int arr[10], int num)
+{
+   int i;
+   for(i = 0; i < 10; i++)
+   {
+      if (arr[i] == num)
+      {
+         return 1;
+      }
+   }
+   return 0;
+}
+
+int comprobar_filas(Node *n)
+{
+   int i, j;
+   for (i = 0; i < 9 ; i++)
+   {
+      int fila[10] = {};
+      int real_index = 0; // cree una lista pa revisar que no se repitan los numeros, creo que no hay otra forma de hacerlo
+      for(j = 0; j < 9; j++)
+      {
+         if (n->sudo[i][j] != 0)
+         {
+            int num = n->sudo[i][j];
+            if (esta_en_lista(fila, num))
+            {
+               return 0;
+            }
+            fila[real_index] = num;
+            real_index++;
+         }
+      }
+   }
+   return 1;
+}
+
+int comprobar_columnas(Node *n)
+{
+   int i, j;
+   for (i = 0; i < 9 ; i++)
+   {
+      int columna[10] = {};
+      int real_index = 0; // cree una lista pa revisar que no se repitan los numeros, creo que no hay otra forma de hacerlo
+      for(j = 0; j < 9; j++)
+      {
+         if (n->sudo[j][i] != 0)
+         {
+            int num = n->sudo[j][i];
+            if (esta_en_lista(columna, num))
+            {
+               return 0;
+            }
+            columna[real_index] = num;
+            real_index++;
+         }
+      }
+   }
+   return 1;
+}
+
+int comprobar_submatrices(Node *n)
+{
+   int k, p;
+   for(k = 1; k <= 9; k++)
+   {
+      for(p = 0; p < 9; p++)
+      {
+          int i =3*(k/3) + (p/3) ;
+          int j =3*(k%3) + (p%3) ;
+            
+      }
+   }
+   return 1;
+}
+
 int is_valid(Node* n){
    //No se repitan números en las filas
    //No se repitan números en las columnas
    //No se repitan números en las submatrices de 3x3
    //Si el estado es válido la función retorna 1, si no lo es retorna 0.
-   /*
-   int k=4,p; 
-   for(p=0;p<9;p++){
-       int i=3*(k/3) + (p/3) ;
-       int j=3*(k%3) + (p%3) ;
-       printf("%d ",nodo->sudo[i][j]);
-       if(p%3 == 2) printf("\n");
-   }
-   */
-    return 1;
+   int filas = comprobar_filas(n);
+   int columnas = comprobar_columnas(n);
+   int submatrices = comprobar_submatrices(n);
+   return filas && columnas && submatrices;
 }
 
 
