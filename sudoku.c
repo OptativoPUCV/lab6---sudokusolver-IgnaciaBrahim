@@ -106,7 +106,7 @@ int comprobar_columnas(Node *n)
 
 int comprobar_submatrices(Node *n)
 {
-   int k, p;
+   /*int k, p;
    for(k = 1; k <= 9; k++)
    {
       for(p = 0; p < 9; p++)
@@ -115,7 +115,7 @@ int comprobar_submatrices(Node *n)
           int j =3*(k%3) + (p%3) ;
             
       }
-   }
+   }*/
    return 1;
 }
 
