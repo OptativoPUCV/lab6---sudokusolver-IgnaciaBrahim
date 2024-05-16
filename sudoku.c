@@ -48,26 +48,37 @@ int is_valid(Node* n){
    //No se repitan números en las columnas
    //No se repitan números en las submatrices de 3x3
    //Si el estado es válido la función retorna 1, si no lo es retorna 0.
-   
+   /*
+   int k=4,p; 
+   for(p=0;p<9;p++){
+       int i=3*(k/3) + (p/3) ;
+       int j=3*(k%3) + (p%3) ;
+       printf("%d ",nodo->sudo[i][j]);
+       if(p%3 == 2) printf("\n");
+   }
+   */
     return 1;
 }
 
 
 List* get_adj_nodes(Node* n){
     List* list=createList();
-    int i, j;
+    int i, j, k;
     for (i = 0; i < 9; i++)
     {
        for (j = 0; j < 9; j++)
        {
           if (n->sudo[i][j] == 0)
           {
-             Node* cpy = copy(n);
-             cpy->sudo[i][j] = i + 1;
-             if (is_valid(cpy))
+             for(k = 1; k <= 9; k++)
              {
-                pushBack(list, cpy);
-             }  
+                 Node* cpy = copy(n);
+                 cpy->sudo[i][j] = k;
+                 if (is_valid(cpy))
+                 {
+                    pushBack(list, cpy);
+                 }  
+             }
           }
        }
     }
