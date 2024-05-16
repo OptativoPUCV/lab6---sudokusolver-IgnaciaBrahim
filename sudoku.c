@@ -63,7 +63,7 @@ List* get_adj_nodes(Node* n){
           if (n->sudo[i][j] == 0)
           {
              Node* cpy = copy(n);
-             cpy->sudo[i][j] = i;
+             cpy->sudo[i][j] = i + 1;
              if (is_valid(cpy))
              {
                 pushBack(list, cpy);
