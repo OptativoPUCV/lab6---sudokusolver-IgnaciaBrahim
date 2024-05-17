@@ -61,7 +61,7 @@ int comprobar_filas(Node *n)
    int i, j;
    for (i = 0; i < 9 ; i++)
    {
-      int fila[10] = {};
+      int fila[10] = {0};
       int real_index = 0; // cree una lista pa revisar que no se repitan los numeros, creo que no hay otra forma de hacerlo
       for(j = 0; j < 9; j++)
       {
@@ -85,7 +85,7 @@ int comprobar_columnas(Node *n)
    int i, j;
    for (i = 0; i < 9 ; i++)
    {
-      int columna[10] = {};
+      int columna[10] = {0};
       int real_index = 0; // cree una lista pa revisar que no se repitan los numeros, creo que no hay otra forma de hacerlo
       for(j = 0; j < 9; j++)
       {
@@ -109,7 +109,7 @@ int comprobar_submatrices(Node *n)
    int k, p;
    for(k = 1; k < 8; k++)
    {
-      int submatriz[10] = {}; 
+      int submatriz[10] = {0}; 
       int real_index = 0;
       for(p = 0; p < 9; p++)
       {
