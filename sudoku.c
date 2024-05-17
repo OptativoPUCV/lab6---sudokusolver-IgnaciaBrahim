@@ -43,10 +43,10 @@ void print_node(Node* n){
     printf("\n");
 }
 
-int esta_en_lista(int arr[10], int num)
+int esta_en_lista(int *arr, int num, int size)
 {
    int i;
-   for(i = 0; i < 10; i++)
+   for(i = 0; i < size; i++)
    {
       if (arr[i] == num)
       {
@@ -68,7 +68,7 @@ int comprobar_filas(Node *n)
          if (n->sudo[i][j] != 0)
          {
             int num = n->sudo[i][j];
-            if (esta_en_lista(fila, num))
+            if (esta_en_lista(fila, num, real_index))
             {
                return 0;
             }
@@ -92,7 +92,7 @@ int comprobar_columnas(Node *n)
          if (n->sudo[j][i] != 0)
          {
             int num = n->sudo[j][i];
-            if (esta_en_lista(columna, num))
+            if (esta_en_lista(columna, num, real_index))
             {
                return 0;
             }
@@ -163,8 +163,13 @@ List* get_adj_nodes(Node* n)
                  {
                     pushBack(list, cpy);
                  }
+                else
+                 {
+                    free(cpy);
+                 }
              }
              return list;
+             //los encuentra todos
           }
        }
     }

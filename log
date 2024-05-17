@@ -249,3 +249,16 @@ Fri 17 May 2024 02:43:06 AM UTC:
  tests:  5|3
 total_score: 35/70
 5622a76
+Fri 17 May 2024 02:46:51 AM UTC: 
+ sudoku.c | 13 +++++++++----
+ 1 file changed, 9 insertions(+), 4 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘comprobar_submatrices’:
+sudoku.c:122:17: error: too few arguments to function ‘esta_en_lista’
+  122 |             if (esta_en_lista(submatriz, num))
+      |                 ^~~~~~~~~~~~~
+sudoku.c:46:5: note: declared here
+   46 | int esta_en_lista(int *arr, int num, int size)
+      |     ^~~~~~~~~~~~~
+Compilation failed
+63cdf32
