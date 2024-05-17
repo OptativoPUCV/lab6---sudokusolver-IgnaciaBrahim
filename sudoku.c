@@ -124,12 +124,14 @@ int comprobar_submatrices(Node *n)
                return 0;
             }
             submatriz[real_index] = num;
+            real_index++;
          }
       }
    return 1;
 }
 
-int is_valid(Node* n){
+int is_valid(Node* n)
+{
    //No se repitan números en las filas
    //No se repitan números en las columnas
    //No se repitan números en las submatrices de 3x3
@@ -141,7 +143,8 @@ int is_valid(Node* n){
 }
 
 
-List* get_adj_nodes(Node* n){
+List* get_adj_nodes(Node* n)
+{
     List* list=createList();
     int i, j, k;
     for (i = 0; i < 9; i++)
