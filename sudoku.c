@@ -115,7 +115,7 @@ int comprobar_submatrices(Node *n)
       {
           int i = 3*(k/3) + (p/3);
           int j = 3*(k%3) + (p%3);
-         if (n->sudo[i][j] != 0))
+         if (n->sudo[i][j] != 0)
          {
             int num = n->sudo[i][j];
             if (esta_en_lista(submatriz, num))
