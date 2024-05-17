@@ -107,7 +107,7 @@ int comprobar_columnas(Node *n)
 int comprobar_submatrices(Node *n)
 {
    int k, p;
-   for(k = 1; k < 8; k++)
+   for(k = 0; k < 9; k++)
    {
       int submatriz[10] = {0}; 
       int real_index = 0;
