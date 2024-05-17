@@ -119,7 +119,7 @@ int comprobar_submatrices(Node *n)
          if (n->sudo[i][j] != 0)
          {
             int num = n->sudo[i][j];
-            if (esta_en_lista(submatriz, num))
+            if (esta_en_lista(submatriz, num, real_index))
             {
                return 0;
             }
