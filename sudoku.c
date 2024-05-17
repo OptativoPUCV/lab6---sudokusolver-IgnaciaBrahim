@@ -179,6 +179,10 @@ List* get_adj_nodes(Node* n)
 
 int is_final(Node* n)
 {
+   if get_adj_nodes(n) == NULL
+   {
+      return 1
+   }
     return 0;
 }
 
