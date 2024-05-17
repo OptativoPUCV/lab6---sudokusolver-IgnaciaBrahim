@@ -127,8 +127,10 @@ int comprobar_submatrices(Node *n)
             real_index++;
          }
       }
+   }
    return 1;
 }
+
 
 int is_valid(Node* n)
 {
@@ -169,16 +171,18 @@ List* get_adj_nodes(Node* n)
 }
 
 
-int is_final(Node* n){
+int is_final(Node* n)
+{
     return 0;
 }
 
-Node* DFS(Node* initial, int* cont){
+Node* DFS(Node* initial, int* cont)
+{
   return NULL;
 }
 
 
-
+/*
 int main( int argc, char *argv[] ){
 
   Node* initial= read_file("s12a.txt");;
@@ -190,3 +194,4 @@ int main( int argc, char *argv[] ){
 
   return 0;
 }
+*/
