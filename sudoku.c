@@ -179,12 +179,18 @@ List* get_adj_nodes(Node* n)
 
 int is_final(Node* n)
 {
-   List *aux = get_adj_nodes(n);
-   if (get_size(aux) == 0)
+   int i, k;
+   for (i = 0; i < 9; i++)
    {
-      return 1;
+      for(k = 0; k < 9; k++)
+      {
+         if (n->sudo[i][k] == 0)
+         {
+            return 0;
+         }
+      }
    }
-    return 0;
+   return 1;
 }
 
 Node* DFS(Node* initial, int* cont)
@@ -197,10 +203,10 @@ Node* DFS(Node* initial, int* cont)
       //saco/elimino.
       Node *aux_stack = top(stack);
       pop(stack);
-      if (is_final(aux_stack))
+      /*if (is_final(aux_stack))
       {
          return aux_stack;
-      }
+      }*/
       //No es el estado final así que hay que obtener los vecinos:
       List *aux_list = get_adj_nodes(aux_stack);
       Node *list_index = first(aux_list);
