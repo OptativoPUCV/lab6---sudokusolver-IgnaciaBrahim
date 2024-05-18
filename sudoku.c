@@ -197,16 +197,15 @@ Node* DFS(Node* initial, int* cont)
 {
    Stack *stack = createStack();
    push(stack, initial);
-   *cont = 0; //no sé si se inicializó en 0 en algún lado??
    while (top(stack) != NULL)
    {
       //saco/elimino.
       Node *aux_stack = top(stack);
       pop(stack);
-      /*if (is_final(aux_stack))
+      if (is_final(aux_stack))
       {
          return aux_stack;
-      }*/
+      }
       //No es el estado final así que hay que obtener los vecinos:
       List *aux_list = get_adj_nodes(aux_stack);
       Node *list_index = first(aux_list);
