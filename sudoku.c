@@ -189,6 +189,29 @@ int is_final(Node* n)
 
 Node* DFS(Node* initial, int* cont)
 {
+   Stack *stack = createStack();
+   push(stack, initial);
+   while (top(stack) != NULL)
+   {
+      //saco/elimino.
+      Node *aux_stack = top(stack);
+      pop(stack);
+      if (is_final(aux_stack))
+      {
+         return aux_stack;
+      }
+      //No es el estado final así que hay que obtener los vecinos:
+      List *aux_list = get_adj_nodes(aux_stack);
+      Node *list_index = first(aux_list);
+      while (list_index != NULL)
+      {
+         push(stack, list_index); //se ponen en el stack cada uno de los elementos de la lista que son los vecinos :D
+         list_index = next(aux_list); //avanzo
+      }
+      free(aux_stack); //liberé memoria del nodo 
+      *cont = *cont + 1;
+   }
+   return NULL
    /*
 
 
