@@ -179,6 +179,13 @@ List* get_adj_nodes(Node* n)
 
 int is_final(Node* n)
 {
+   //bueno aqui me confundí, implementé is_final como 
+   //si es el estado final, entonces su get_adj es vacía
+   //Pero eso no era correcto, puesto que si no hay
+   //Movimientos disponibles igual será vacía 
+   //con las restricciones respectivas.
+   //Por eso luego la arreglé y comprobé que no tuviese
+   //0s, ya que de esa forma se habría resuelto el sudoku.
    int i, k;
    for (i = 0; i < 9; i++)
    {
