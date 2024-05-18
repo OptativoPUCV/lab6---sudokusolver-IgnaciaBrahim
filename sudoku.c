@@ -211,7 +211,7 @@ Node* DFS(Node* initial, int* cont)
       free(aux_stack); //liberé memoria del nodo 
       *cont = *cont + 1;
    }
-   return NULL
+   return NULL;
    /*
 
 
